@@ -3,13 +3,13 @@ import java.util.Scanner;
 
 public class Triangulo {
     public static void main(String[] args) {
-        Scanner texto = new Scanner(System.in);
-        texto.useDelimiter(";\\s");
+        Scanner teclado = new Scanner(System.in);
+        teclado.useDelimiter(";\\s");
 
         System.out.print("Ingresar tres numeros dobles (double): ");
-        double a = texto.nextDouble();
-        double b = texto.nextDouble();
-        double c = texto.nextDouble();
+        double a = teclado.nextDouble();
+        double b = teclado.nextDouble();
+        double c = teclado.nextDouble();
 
         double semiperimetro = (a + b + c) / 2;
 
