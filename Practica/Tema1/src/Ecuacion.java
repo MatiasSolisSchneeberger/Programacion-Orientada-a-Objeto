@@ -4,18 +4,18 @@ import java.util.Scanner;
 
 public class Ecuacion {
     public static void main(String[] args) {
-        Scanner num = new Scanner(System.in);
+        Scanner teclado = new Scanner(System.in);
 
         int a, b, c;
 
         double r1, r2, discriminante;
 
         System.out.print("a: ");
-        a = num.nextInt();
+        a = teclado.nextInt();
         System.out.print("b: ");
-        b = num.nextInt();
+        b = teclado.nextInt();
         System.out.print("c: ");
-        c = num.nextInt();
+        c = teclado.nextInt();
 
         discriminante = Math.pow(b, 2) - 4 * a * c;
         r1 = ((-b + Math.sqrt(discriminante)) / 2 * a);
