@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CrearAlumno",
+            "request": "launch",
+            "mainClass": "CrearAlumno",
+            "projectName": "Programación Orientada a Objeto_97c6f5ca"
+        },
+        {
+            "type": "java",
+            "name": "CrearCliente",
+            "request": "launch",
+            "mainClass": "CrearCliente",
+            "projectName": "Programación Orientada a Objeto_97c6f5ca"
+        },
+        {
+            "type": "java",
             "name": "Tema2Ejemplo",
             "request": "launch",
             "mainClass": "Tema2Ejemplo",

@@ -1,21 +1,15 @@
-// Act 5
-
-import java.util.Scanner;
-
 public class Ecuacion {
     public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);
-
         int a, b, c;
 
         double r1, r2, discriminante;
 
         System.out.print("a: ");
-        a = teclado.nextInt();
+        a = Integer.valueOf(args[0]);
         System.out.print("b: ");
-        b = teclado.nextInt();
+        b = Integer.valueOf(args[1]);
         System.out.print("c: ");
-        c = teclado.nextInt();
+        c = Integer.valueOf(args[2]);
 
         discriminante = Math.pow(b, 2) - 4 * a * c;
         r1 = ((-b + Math.sqrt(discriminante)) / 2 * a);

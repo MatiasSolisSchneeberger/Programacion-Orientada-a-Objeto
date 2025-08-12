@@ -1,15 +1,8 @@
-// Actividad 4
-import java.util.Scanner;
-
 public class Triangulo {
     public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);
-        teclado.useDelimiter(";\\s");
-
-        System.out.print("Ingresar tres numeros dobles (double): ");
-        double a = teclado.nextDouble();
-        double b = teclado.nextDouble();
-        double c = teclado.nextDouble();
+        double a = Double.parseDouble(args[0]);
+        double b = Double.parseDouble(args[1]);
+        double c = Double.parseDouble(args[2]);
 
         double semiperimetro = (a + b + c) / 2;
 
