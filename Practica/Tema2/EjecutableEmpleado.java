@@ -1,10 +1,21 @@
+import java.util.Scanner;
+
+/**
+ * TP 2 - Act 5
+ *
+ * @author Matias Solis Schneeberger
+ * @version 1.0
+ *
+ */
 public class EjecutableEmpleado {
 	public static void main(String[] args) {
-		long cuil = Long.parseLong(args[0]);
-		String apellido = args[1];
-		String nombre = args[2];
-		double sueldoBasico = Double.parseDouble(args[3]);
-		int anioIngreso = Integer.valueOf(args[4]);
+		Scanner teclado = new Scanner(System.in);
+
+		long cuil = teclado.nextLong();
+		String apellido = teclado.next();
+		String nombre = teclado.next();
+		double sueldoBasico = teclado.nextDouble();
+		int anioIngreso = teclado.nextInt();
 
 		Empleado empleado1 = new Empleado(cuil, apellido, nombre, sueldoBasico, anioIngreso);
 

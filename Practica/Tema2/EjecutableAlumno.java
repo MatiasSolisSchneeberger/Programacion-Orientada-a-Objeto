@@ -1,3 +1,9 @@
+/**
+ * TP 2 - Act 4
+ *
+ * @author Matias Solis Schneeberger
+ * @version 1.0
+ * */
 public class EjecutableAlumno {
 	public static void main(String[] args) {
 		int LU = Integer.valueOf(args[0]);

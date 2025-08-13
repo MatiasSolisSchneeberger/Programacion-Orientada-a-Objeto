@@ -1,3 +1,10 @@
+/**
+ * TP 2 - Act 6
+ *
+ * @author Matias Solis Schneeberger
+ * @version 1.0
+ *
+ */
 public class Punto {
 	private double x;
 	private double y;

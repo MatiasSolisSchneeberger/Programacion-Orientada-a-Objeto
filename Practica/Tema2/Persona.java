@@ -1,8 +1,9 @@
 /**
+ * TP 2 - Act 1
  * Representa una persona con datos básicos y métodos para obtener su información.
  * Incluye cálculo de edad considerando solo la diferencia de años.
  *
- * @author Matias Solis Scheeberger
+ * @author Matias Solis Schneeberger
  * @version 1.0
  */
 
