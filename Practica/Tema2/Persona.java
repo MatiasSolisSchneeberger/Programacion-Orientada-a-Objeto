@@ -5,7 +5,9 @@
  * @author Matias Solis Scheeberger
  * @version 1.0
  */
-import java.util.*;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class Persona {
 	Calendar fechaHoy = new GregorianCalendar();
