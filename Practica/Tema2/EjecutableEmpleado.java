@@ -4,7 +4,7 @@ public class EjecutableEmpleado {
 		String apellido = args[1];
 		String nombre = args[2];
 		double sueldoBasico = Double.parseDouble(args[3]);
-		int anioIngreso = Integer.parseInt(args[4]);
+		int anioIngreso = Integer.valueOf(args[4]);
 
 		Empleado empleado1 = new Empleado(cuil, apellido, nombre, sueldoBasico, anioIngreso);
 
