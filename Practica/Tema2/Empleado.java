@@ -1,18 +1,16 @@
-
-import java.util.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * @author Matias Solis Schneeberger
  * @version 1.0
  */
 public class Empleado {
-
 	private long cuil;
 	private String apellido;
 	private String nombre;
 	private double sueldoBasico;
 	private int anioIngreso;
-
 	Calendar calendario = new GregorianCalendar();
 	int anioActual = calendario.get(Calendar.YEAR);
 

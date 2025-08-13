@@ -1,21 +1,13 @@
 public class Ecuacion {
     public static void main(String[] args) {
-        int a, b, c;
-
-        double r1, r2, discriminante;
-
-        System.out.print("a: ");
+        int a, b, c;        double r1, r2, discriminante;        System.out.print("a: ");
         a = Integer.valueOf(args[0]);
         System.out.print("b: ");
         b = Integer.valueOf(args[1]);
         System.out.print("c: ");
-        c = Integer.valueOf(args[2]);
-
-        discriminante = Math.pow(b, 2) - 4 * a * c;
+        c = Integer.valueOf(args[2]);        discriminante = Math.pow(b, 2) - 4 * a * c;
         r1 = ((-b + Math.sqrt(discriminante)) / 2 * a);
-        r2 = ((-b - Math.sqrt(discriminante)) / 2 * a);
-
-        if (discriminante > 0) {
+        r2 = ((-b - Math.sqrt(discriminante)) / 2 * a);        if (discriminante > 0) {
             System.out.println("Raíces :");
             System.out.println("\t- r1 = " + r1);
             System.out.println("\t- r2 = " + r2);

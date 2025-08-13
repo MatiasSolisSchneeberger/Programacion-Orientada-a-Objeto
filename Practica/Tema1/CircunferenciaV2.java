@@ -1,7 +1,5 @@
 // Actividad 7
-import java.util.Scanner;
-
-public class CircunferenciaV2 {
+import java.util.Scanner;public class CircunferenciaV2 {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         double radio;
