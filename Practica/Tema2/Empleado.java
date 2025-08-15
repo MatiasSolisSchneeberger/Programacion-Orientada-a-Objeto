@@ -28,6 +28,7 @@ public class Empleado {
 		setApellido(p_apellido);
 		setNombre(p_nombre);
 		setSueldoBasico(p_sueldoBasico);
+		setAnioIngreso(p_anioIngreso);
 	}
 
 	public long getCuil() {
