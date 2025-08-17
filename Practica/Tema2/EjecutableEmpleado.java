@@ -24,7 +24,9 @@ public class EjecutableEmpleado {
 		int anioIngresoEmp1 = teclado.nextInt();
 		Empleado empleado1 = new Empleado(cuilEmp1, apellidoEmp1,nombreEmp1, sueldoBasicoEmp1,anioIngresoEmp1);
 
+		System.out.print("Mostrando Empleado 1");
 		empleado1.mostrar();
+		System.out.print("--------------------");
 		empleado1.mostrarLinea();
 		System.out.println(empleado1.apeYNom());
 
@@ -42,7 +44,9 @@ public class EjecutableEmpleado {
 		int anioIngresoEmp2 = teclado.nextInt();
 		Empleado empleado2 = new Empleado(cuilEmp2, apellidoEmp2,nombreEmp2, sueldoBasicoEmp2,anioIngresoEmp2);
 
+		System.out.print("Mostrando Empleado 2");
 		empleado2.mostrar();
+		System.out.print("--------------------");
 		empleado2.mostrarLinea();
 		System.out.println(empleado2.apeYNom());
 	}
