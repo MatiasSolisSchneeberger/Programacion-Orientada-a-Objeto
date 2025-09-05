@@ -3,7 +3,8 @@
  *
  * @author Matias Solis Schneeberger
  * @version 1.0
- * */
+ *
+ */
 public class EjecutableAlumno {
 	public static void main(String[] args) {
 		int LU = Integer.valueOf(args[0]);
@@ -18,7 +19,7 @@ public class EjecutableAlumno {
 		alumno1.setNota1(nota1);
 		/* Segundo Parcial */
 		alumno1.setNota2(nota2);
-
 		alumno1.mostrar();
+		System.out.println(alumno1.apeYNom());
 	}
 }

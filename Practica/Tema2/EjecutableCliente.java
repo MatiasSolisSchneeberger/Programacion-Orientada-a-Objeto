@@ -12,6 +12,16 @@ public class EjecutableCliente {
 		double saldo = Double.parseDouble(args[3]);
 
 		Cliente cliente1 = new Cliente(nroDNI, apellido, nombre, saldo);
+		System.out.println("--- Cliente inicial ---");
 		cliente1.mostrar();
+
+		System.out.println("--- Cliente con saldo agregado ---");
+		cliente1.agregarSaldo(1000);
+		cliente1.mostrar();
+
+		System.out.println("--- Cliente con nuevo saldo (negativo) ---");
+		cliente1.nuevoSaldo(-100);
+		cliente1.mostrar();
+
 	}
 }

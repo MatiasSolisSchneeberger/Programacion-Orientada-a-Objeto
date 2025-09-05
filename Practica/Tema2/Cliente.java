@@ -1,6 +1,9 @@
 /**
- * TP 2 - Act 3
+ * Clase que representa a un Cliente de un banco o sistema financiero.
+ * Se almacenan sus datos personales (DNI, nombre, apellido) y el saldo de su cuenta.
+ * Permite consultar y modificar estos datos, además de actualizar el saldo.
  *
+ * TP 2 - Act 3
  * @author Matias Solis Schneeberger
  * @version 1.0
  */
@@ -11,86 +14,100 @@ public class Cliente {
 	private double saldo;
 
 	/**
-	 * @param p_nroDNI
-	 * @param p_apellido
-	 * @param p_nombre
-	 * @param p_saldo
+	 * Constructor de la clase Cliente.
+	 * Crea un cliente con todos sus datos cargados.
+	 *
+	 * @param p_nroDNI número de documento del cliente
+	 * @param p_apellido apellido del cliente
+	 * @param p_nombre nombre del cliente
+	 * @param p_saldo saldo inicial de la cuenta
 	 */
 	public Cliente(int p_nroDNI, String p_apellido, String p_nombre, double p_saldo) {
 		setNroDNI(p_nroDNI);
 		setApellido(p_apellido);
 		setNombre(p_nombre);
 		setSaldo(p_saldo);
-	}    /* Setters y Getters */
+	}
 
 	/**
-	 * @param p_nroDNI
+	 * Cambia el DNI del cliente.
+	 * @param p_nroDNI nuevo DNI
 	 */
 	public void setNroDNI(int p_nroDNI) {
 		this.nroDNI = p_nroDNI;
 	}
 
 	/**
-	 * @return el atributo nroDNI del objeto
+	 * Devuelve el DNI del cliente.
+	 * @return número de documento
 	 */
 	public int getNroDNI() {
 		return nroDNI;
 	}
 
 	/**
-	 * @param p_apellido
+	 * Cambia el apellido del cliente.
+	 * @param p_apellido nuevo apellido
 	 */
 	public void setApellido(String p_apellido) {
 		this.apellido = p_apellido;
 	}
 
 	/**
-	 * @return el atributo apellido del objeto
+	 * Devuelve el apellido del cliente.
+	 * @return apellido
 	 */
 	public String getApellido() {
 		return apellido;
 	}
 
 	/**
-	 * @param p_nombre
+	 * Cambia el nombre del cliente.
+	 * @param p_nombre nuevo nombre
 	 */
 	public void setNombre(String p_nombre) {
 		this.nombre = p_nombre;
 	}
 
 	/**
-	 * @return el atributo nombre del objeto
+	 * Devuelve el nombre del cliente.
+	 * @return nombre
 	 */
 	public String getNombre() {
 		return nombre;
 	}
 
 	/**
-	 * @param p_saldo
+	 * Cambia el saldo de la cuenta del cliente.
+	 * @param p_saldo nuevo saldo
 	 */
 	public void setSaldo(double p_saldo) {
 		this.saldo = p_saldo;
 	}
 
 	/**
-	 * @return el atributo saldo del objeto
+	 * Devuelve el saldo actual del cliente.
+	 * @return saldo
 	 */
 	public double getSaldo() {
 		return saldo;
 	}
 
 	/**
-	 * muestra la informacion final del objeto. Nombre, apellido, DNI, saldo
+	 * Muestra por consola la información principal del cliente:
+	 * Nombre, Apellido, DNI y saldo actual.
 	 */
 	public void mostrar() {
-		System.out.println("- Practica.Tema2.Cliente -");
+		System.out.println("- Cliente -");
 		System.out.println("Nombre y Apellido: " + getNombre() + " " + getApellido() + " (" + getNroDNI() + ")");
-		System.out.println("Saldo: " + getSaldo());
+		System.out.println("Saldo: $" + getSaldo());
 	}
 
 	/**
-	 * @param p_importe
-	 * @return nuevoSaldo (saldoActual + importe)
+	 * Suma un importe al saldo actual del cliente.
+	 *
+	 * @param p_importe importe a agregar
+	 * @return nuevo saldo después de la operación
 	 */
 	public double agregarSaldo(double p_importe) {
 		double nuevoSaldo = p_importe + getSaldo();
@@ -99,8 +116,10 @@ public class Cliente {
 	}
 
 	/**
-	 * @param p_importe
-	 * @return nuevoSaldo (nuevoImporte)
+	 * Reemplaza el saldo actual del cliente por un nuevo importe.
+	 *
+	 * @param p_importe nuevo saldo
+	 * @return el nuevo saldo
 	 */
 	public double nuevoSaldo(double p_importe) {
 		setSaldo(p_importe);
