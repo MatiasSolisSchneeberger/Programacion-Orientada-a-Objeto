@@ -16,8 +16,8 @@ public class Circulo {
 	 * @param p_centro centro del círculo
 	 */
 	Circulo(double p_radio, Punto p_centro) {
-		setCentro(p_centro);
-		setRadio(p_radio);
+		this.setCentro(p_centro);
+		this.setRadio(p_radio);
 	}
 
 	/**
@@ -25,8 +25,8 @@ public class Circulo {
 	 */
 	Circulo() {
 		Punto punto = new Punto();
-		setCentro(punto);
-		setRadio(0);
+		this.setCentro(punto);
+		this.setRadio(0);
 	}
 
 
@@ -36,7 +36,7 @@ public class Circulo {
 	 * @return radio
 	 */
 	public double getRadio() {
-		return radio;
+		return this.radio;
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class Circulo {
 	 * @return centro
 	 */
 	public Punto getCentro() {
-		return centro;
+		return this.centro;
 	}
 
 
@@ -75,7 +75,7 @@ public class Circulo {
 	 */
 	public void desplazar(double p_px, double p_py) {
 		Punto punto = new Punto(p_px, p_py);
-		setCentro(punto);
+		this.setCentro(punto);
 	}
 
 	/**
@@ -84,8 +84,10 @@ public class Circulo {
 	 */
 	public void caracteristicas() {
 		System.out.println("****** Circulo ******");
-		System.out.println("Centro: " + this.getCentro().coordenadas() + "\t- Radio: " + this.getRadio());
-		System.out.println("Superficie: " + this.superficie() + "\t- Perímetro: " + this.perimetro());
+		System.out.println("Centro: " + this.getCentro().coordenadas() +
+				"\t- Radio: " + this.getRadio());
+		System.out.println("Superficie: " + this.superficie() +
+				"\t- Perímetro: " + this.perimetro());
 	}
 
 	/**
@@ -94,7 +96,7 @@ public class Circulo {
 	 * @return perímeter double
 	 */
 	public double perimetro() {
-		return Math.PI * getRadio() * 2;
+		return Math.PI * this.getRadio() * 2;
 	}
 
 	/**
@@ -103,7 +105,7 @@ public class Circulo {
 	 * @return superficie double
 	 */
 	public double superficie() {
-		return Math.PI * (getRadio() * getRadio());
+		return Math.PI * (this.getRadio() * this.getRadio());
 	}
 
 	/**
