@@ -30,5 +30,27 @@ public class CreaFigura {
 		double distancia = circulo1.distanciaA(circulo2);
 		System.out.println("La distancia entre los dos circulos es: " +
 				distancia);
+
+
+
+		System.out.println("--- Rectangulo ---");
+
+		double ancho = rnd.nextDouble(100);
+		double alto = rnd.nextDouble(100);
+		Rectangulo rectangulo1 = new Rectangulo(ancho, alto);
+
+		rectangulo1.desplazar(40, -20);
+
+		rectangulo1.caracteristicas();
+
+		ancho = rnd.nextDouble(100);
+		alto = rnd.nextDouble(100);
+
+		pto.desplazar(7.4, 4.5);
+		Rectangulo rectangulo2 = new Rectangulo(pto, ancho, alto);
+
+		rectangulo2.elMayor(rectangulo1).caracteristicas();
+		distancia = rectangulo1.distanciaA(rectangulo1);
+		System.out.println("La distancia entre los dos rectangulos es: " + distancia);
 	}
 }
