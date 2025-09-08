@@ -5,7 +5,7 @@ import java.util.Calendar;
  * Clase principal para probar las clases CuentaCorriente, CajaDeAhorro y Persona.
  *
  * @author Matias Solis Schneeberger
- * @version 1.0
+ * @version 2.0
  */
 public class Banco {
 	public static void main(String[] args) {
