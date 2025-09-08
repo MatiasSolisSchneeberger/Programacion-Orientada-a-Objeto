@@ -235,12 +235,9 @@ public class EmpleadoConJefe {
 
 	/**
 	 * Calcula el adicional por antigüedad según la siguiente regla:
-	 * <ul>
-	 * <li>Menos de 2 años: 2%</li>
-	 * <li>Entre 2 y 10 años: 4%</li>
-	 * <li>Más de 10 años: 6%</li>
-	 * </ul>
-	 *
+	 * - Menos de 2 años: 2%
+	 * - Entre 2 y 10 años: 4%
+	 * - Más de 10 años: 6%
 	 * @return Adicional calculado
 	 */
 	private double adicional() {
