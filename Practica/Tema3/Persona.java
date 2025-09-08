@@ -3,20 +3,20 @@ import java.util.GregorianCalendar;
 
 /**
  * TP 2 - Act 1
- * TP 3 - Act 7
+ * TP 3 - Act 7 - Act 9
  * Representa una persona con datos básicos y métodos para obtener su información.
  * Incluye cálculo de edad considerando solo la diferencia de años.
  *
  * @author Matias Solis Schneeberger
- * @version 1.0
+ * @version 2.0
  */
 public class Persona {
 	Calendar fechaHoy = new GregorianCalendar();
-	private int anioActual = fechaHoy.get(Calendar.YEAR);
+	private final int anioActual = fechaHoy.get(Calendar.YEAR);
 	private int nroDNI;
 	private String nombre;
 	private String apellido;
-	private int anioNacimiento;
+	private Calendar fechaNacimiento;
 
 	/**
 	 * Construye una nueva persona.
@@ -32,6 +32,22 @@ public class Persona {
 		setApellido(p_apellido);
 		setAnioNacimiento(p_anioNacimiento);
 	}
+
+	/**
+	 * Construye una nueva persona.
+	 *
+	 * @param p_nroDNI          número de documento de identidad
+	 * @param p_nombre          nombre de la persona
+	 * @param p_apellido        apellido de la persona
+	 * @param p_fechaNacimiento fecha de nacimiento
+	 */
+	Persona(int p_nroDNI, String p_nombre, String p_apellido, Calendar p_fechaNacimiento) {
+		this.setDNI(p_nroDNI);
+		this.setNombre(p_nombre);
+		this.setApellido(p_apellido);
+		this.setFechaNacimiento(p_fechaNacimiento);
+	}
+
 
 	/**
 	 * Establece el número de documento.
@@ -66,7 +82,7 @@ public class Persona {
 	 * @param p_anioNacimiento año de nacimiento
 	 */
 	private void setAnioNacimiento(int p_anioNacimiento) {
-		anioNacimiento = p_anioNacimiento;
+		this.setFechaNacimiento(new GregorianCalendar(p_anioNacimiento, Calendar.JANUARY, 1));
 	}
 
 	/**
@@ -102,8 +118,27 @@ public class Persona {
 	 * @return año de nacimiento
 	 */
 	public int getAnioNacimiento() {
-		return anioNacimiento;
+		return getFechaNacimiento().get(Calendar.YEAR);
 	}
+
+	/**
+	 * Devuelve la fecha de nacimiento.
+	 *
+	 * @return fecha de nacimiento
+	 */
+	public Calendar getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	/**
+	 * Establece la fecha de nacimiento.
+	 *
+	 * @param fechaNacimiento fecha de nacimiento
+	 */
+	public void setFechaNacimiento(Calendar fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
 
 	/**
 	 * Calcula la edad en años cumplidos.
@@ -139,6 +174,13 @@ public class Persona {
 	public void mostrar() {
 		System.out.println("Nombre y Apellido: " + nomYApe());
 		System.out.print("DNI: " + getDNI() + "\t");
-		System.out.println("Edad: " + edad() + "años");
+		System.out.println("Edad: " + edad() + " años");
+	}
+
+	public boolean esCumpleanios() {
+
+		return fechaHoy.get(Calendar.DAY_OF_MONTH) == fechaNacimiento.get(Calendar.DAY_OF_MONTH)
+				&& fechaHoy.get(Calendar.MONTH) == fechaNacimiento.get(Calendar.MONTH);
+
 	}
 }

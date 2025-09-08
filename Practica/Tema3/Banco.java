@@ -1,7 +1,7 @@
 import java.util.Calendar;
 
 /**
- * TP 3 - Act 7
+ * TP 3 - Act 7 - Act 9
  * Clase principal para probar las clases CuentaCorriente, CajaDeAhorro y Persona.
  *
  * @author Matias Solis Schneeberger
@@ -26,7 +26,7 @@ public class Banco {
 		ca.extraer(200); // debería fallar
 		ca.extraer(100); // debería andar
 		ca.mostrar();
-
+		// Act 9
 		System.out.println(titular.esCumpleanios());
 	}
 }
