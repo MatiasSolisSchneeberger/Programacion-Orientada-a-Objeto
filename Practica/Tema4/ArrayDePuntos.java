@@ -31,7 +31,7 @@ public class ArrayDePuntos {
 
 		System.out.println("\nCoordenadas de los puntos ingresados:");
 		for (Punto punto : puntos) {
-			punto.mostrar();
+			System.out.println(punto.coordenadas());
 		}
 
 		// Mostrar distancia entre los puntos consecutivos
