@@ -230,7 +230,7 @@ public class EmpleadoConJefe {
 	 * @return Descuento total
 	 */
 	private double descuento() {
-		return getSueldoBasico() * 0.02 + 1500;
+		return this.getSueldoBasico() * 0.02 + 1500;
 	}
 
 	/**
@@ -243,11 +243,11 @@ public class EmpleadoConJefe {
 	private double adicional() {
 		double adicional;
 		if (antiguedad() < 2) {
-			adicional = getSueldoBasico() * 0.02;
+			adicional = this.getSueldoBasico() * 0.02;
 		} else if (antiguedad() < 10) {
-			adicional = getSueldoBasico() * 0.04;
+			adicional = this.getSueldoBasico() * 0.04;
 		} else {
-			adicional = getSueldoBasico() * 0.06;
+			adicional = this.getSueldoBasico() * 0.06;
 		}
 		return adicional;
 	}
@@ -258,7 +258,7 @@ public class EmpleadoConJefe {
 	 * @return Sueldo neto
 	 */
 	public double sueldoNeto() {
-		return getSueldoBasico() + adicional() - descuento();
+		return this.getSueldoBasico() + this.adicional() - this.descuento();
 	}
 
 	/**
@@ -267,7 +267,7 @@ public class EmpleadoConJefe {
 	 * @return Nombre y apellido
 	 */
 	public String nomYApe() {
-		return getNombre() + " " + getApellido();
+		return this.getNombre() + " " + this.getApellido();
 	}
 
 	/**
@@ -276,7 +276,7 @@ public class EmpleadoConJefe {
 	 * @return Apellido y nombre
 	 */
 	public String apeYNom() {
-		return getApellido() + " " + getNombre();
+		return this.getApellido() + " " + this.getNombre();
 	}
 
 	/**
@@ -284,14 +284,15 @@ public class EmpleadoConJefe {
 	 * incluyendo nombre, CUIL, antigüedad, sueldo neto y jefe.
 	 */
 	public void mostrar() {
-		System.out.println("Nombre y Apellido: " + nomYApe());
-		System.out.println("CUIL: " + getCuil() +
-				" Antigüedad: " + antiguedad() + " años de servicio");
-		System.out.println("Sueldo Neto: $" + sueldoNeto());
+		System.out.println("Nombre y Apellido: " + this.nomYApe());
+		System.out.println("CUIL: " + this.getCuil() +
+							" Antigüedad: " + this.antiguedad() +
+							" años de servicio");
+		System.out.println("Sueldo Neto: $" + this.sueldoNeto());
 		System.out.println("Responde a: " +
-				(getJefe() != null ?
-						getJefe().nomYApe() :
-						"GERENTE GENERAL"));
+							(this.getJefe() != null ?
+								this.getJefe().nomYApe() :
+								"GERENTE GENERAL"));
 	}
 
 	/**
@@ -300,9 +301,9 @@ public class EmpleadoConJefe {
 	 * @return Línea con CUIL, nombre completo y sueldo neto
 	 */
 	public String mostrarLinea() {
-		return getCuil() + " " +
-				nomYApe() +
+		return this.getCuil() + " " +
+				this.nomYApe() +
 				"........." +
-				sueldoNeto();
+				this.sueldoNeto();
 	}
 }

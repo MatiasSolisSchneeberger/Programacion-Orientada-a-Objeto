@@ -179,8 +179,8 @@ public class Hombre {
 	 * @return cadena con los datos
 	 */
 	public String datos() {
-		return (getNombre() + " " + getApellido() + " de " +
-				getEdad() + " años");
+		return (this.getNombre() + " " + this.getApellido() + " de " +
+				this.getEdad() + " años");
 	}
 
 	/**
@@ -188,8 +188,8 @@ public class Hombre {
 	 * "Nombre Apellido de X años - EstadoCivil".
 	 */
 	public void mostrarEstadoCivil() {
-		System.out.println(getNombre() + " " + getApellido() +
-				" - " + getEstadoCivil());
+		System.out.println(this.getNombre() + " " + this.getApellido() +
+				" - " + this.getEstadoCivil());
 	}
 
 	/**

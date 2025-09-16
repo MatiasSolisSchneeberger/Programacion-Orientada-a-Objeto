@@ -25,11 +25,11 @@ public class Laboratorio {
 	 * @param p_diaEntrega   día de entrega
 	 */
 	Laboratorio(String p_nombre, String p_domicilio, String p_telefono, int p_compraMinima, int p_diaEntrega) {
-		setNombre(p_nombre);
-		setDomicilio(p_domicilio);
-		setTelefono(p_telefono);
-		setCompraMinima(p_compraMinima);
-		setDiaEntrega(p_diaEntrega);
+		this.setNombre(p_nombre);
+		this.setDomicilio(p_domicilio);
+		this.setTelefono(p_telefono);
+		this.setCompraMinima(p_compraMinima);
+		this.setDiaEntrega(p_diaEntrega);
 	}
 
 	/**
@@ -41,9 +41,9 @@ public class Laboratorio {
 	 * @param p_telefono  teléfono de contacto
 	 */
 	Laboratorio(String p_nombre, String p_domicilio, String p_telefono) {
-		setNombre(p_nombre);
-		setDomicilio(p_domicilio);
-		setTelefono(p_telefono);
+		this.setNombre(p_nombre);
+		this.setDomicilio(p_domicilio);
+		this.setTelefono(p_telefono);
 	}
 
 	/**
@@ -142,7 +142,7 @@ public class Laboratorio {
 	 * @param p_compraMin nuevo valor
 	 */
 	public void nuevaCompraMinima(int p_compraMin) {
-		compraMinima = p_compraMin;
+		this.compraMinima = p_compraMin;
 	}
 
 	/**
@@ -151,7 +151,7 @@ public class Laboratorio {
 	 * @param p_diaEntrega nuevo valor
 	 */
 	public void nuevoDiaEntrega(int p_diaEntrega) {
-		diaEntrega = p_diaEntrega;
+		this.diaEntrega = p_diaEntrega;
 	}
 
 	/**
@@ -161,6 +161,6 @@ public class Laboratorio {
 	 * @return datos del laboratorio
 	 */
 	public String mostrar() {
-		return "Laboratorio: " + getNombre() + "\n" + "Domicilio: " + getDomicilio() + " - Teléfono: " + getTelefono();
+		return "Laboratorio: " + this.getNombre() + "\n" + "Domicilio: " + this.getDomicilio() + " - Teléfono: " + this.getTelefono();
 	}
 }

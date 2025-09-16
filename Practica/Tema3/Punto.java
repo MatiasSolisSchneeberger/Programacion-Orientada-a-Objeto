@@ -15,8 +15,8 @@ public class Punto {
 	 * Crea un punto en el origen de coordenadas (0.0, 0.0).
 	 */
 	Punto() {
-		setX(0.0);
-		setY(0.0);
+		this.setX(0.0);
+		this.setY(0.0);
 	}
 
 	/**
@@ -27,8 +27,8 @@ public class Punto {
 	 * @param p_y valor de la coordenada Y
 	 */
 	Punto(double p_x, double p_y) {
-		setX(p_x);
-		setY(p_y);
+		this.setX(p_x);
+		this.setY(p_y);
 	}
 
 	/**

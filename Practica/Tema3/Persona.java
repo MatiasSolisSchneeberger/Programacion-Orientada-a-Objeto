@@ -118,7 +118,7 @@ public class Persona {
 	 * @return año de nacimiento
 	 */
 	public int getAnioNacimiento() {
-		return getFechaNacimiento().get(Calendar.YEAR);
+		return this.getFechaNacimiento().get(Calendar.YEAR);
 	}
 
 	/**
@@ -146,7 +146,7 @@ public class Persona {
 	 * @return edad actual
 	 */
 	public int edad() {
-		return anioActual - getAnioNacimiento();
+		return anioActual - this.getAnioNacimiento();
 	}
 
 	/**
@@ -155,7 +155,7 @@ public class Persona {
 	 * @return nombre y apellido concatenados
 	 */
 	public String nomYApe() {
-		return getNombre() + " " + getApellido();
+		return this.getNombre() + " " + this.getApellido();
 	}
 
 	/**
@@ -164,7 +164,7 @@ public class Persona {
 	 * @return apellido y nombre concatenados
 	 */
 	public String apeYNom() {
-		return getApellido() + " " + getNombre();
+		return this.getApellido() + " " + this.getNombre();
 	}
 
 	/**
@@ -172,13 +172,12 @@ public class Persona {
 	 *
 	 */
 	public void mostrar() {
-		System.out.println("Nombre y Apellido: " + nomYApe());
-		System.out.print("DNI: " + getDNI() + "\t");
-		System.out.println("Edad: " + edad() + " años");
+		System.out.println("Nombre y Apellido: " + this.nomYApe());
+		System.out.print("DNI: " + this.getDNI() + "\t");
+		System.out.println("Edad: " + this.edad() + " años");
 	}
 
 	public boolean esCumpleanios() {
-
 		return fechaHoy.get(Calendar.DAY_OF_MONTH) == fechaNacimiento.get(Calendar.DAY_OF_MONTH)
 				&& fechaHoy.get(Calendar.MONTH) == fechaNacimiento.get(Calendar.MONTH);
 

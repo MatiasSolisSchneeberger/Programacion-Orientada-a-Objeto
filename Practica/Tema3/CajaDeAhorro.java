@@ -16,21 +16,6 @@ public class CajaDeAhorro {
 
 	/**
 	 * Construye una nueva caja de ahorro con un número de cuenta,
-	 * un titular y un saldo inicial de 0.
-	 * La cantidad de extracciones posibles se inicializa en 10.
-	 *
-	 * @param p_nroCuenta número de cuenta
-	 * @param p_titular   titular de la cuenta(de tipo Persona)
-	 *
-	 */
-	CajaDeAhorro(int p_nroCuenta, Persona p_titular) {
-		this.setNroCuenta(p_nroCuenta);
-		this.setTitular(p_titular);
-		this.setExtraccionesPosibles(10);
-	}
-
-	/**
-	 * Construye una nueva caja de ahorro con un número de cuenta,
 	 * un titular y un saldo inicial.
 	 * La cantidad de extracciones posibles se inicializa en 10.
 	 *
@@ -45,6 +30,22 @@ public class CajaDeAhorro {
 		this.setSaldo(p_saldo);
 		this.setExtraccionesPosibles(10);
 	}
+
+	/**
+	 * Construye una nueva caja de ahorro con un número de cuenta,
+	 * un titular y un saldo inicial de 0.
+	 * La cantidad de extracciones posibles se inicializa en 10.
+	 *
+	 * @param p_nroCuenta número de cuenta
+	 * @param p_titular   titular de la cuenta(de tipo Persona)
+	 *
+	 */
+	CajaDeAhorro(int p_nroCuenta, Persona p_titular) {
+		this.setNroCuenta(p_nroCuenta);
+		this.setTitular(p_titular);
+		this.setExtraccionesPosibles(10);
+	}
+
 
 	/**
 	 * Obtiene el número de cuenta.

@@ -263,6 +263,12 @@ public class Empleado {
 
 
 	// nuevo:
+
+	/**
+	 * Evalua si hoy es el aniversario de ingreso del empleado.
+	 *
+	 * @return true si es el aniversario, false en caso contrario.
+	 */
 	public boolean esAniversario() {
 		Calendar hoy = new GregorianCalendar();
 		return (hoy.get(Calendar.DAY_OF_YEAR) == getFechaIngreso().get(Calendar.DAY_OF_YEAR));
