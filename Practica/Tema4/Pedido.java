@@ -6,12 +6,12 @@ import java.util.Calendar;
  *
  * @author Matias Solis Schneeberger
  * @version 1.0
- * */
+ */
 public class Pedido {
 	// Atributos
 	private Calendar fecha;
 	private Cliente cliente;
-	private ArrayList<Producto> productos;
+	private ArrayList productos = new ArrayList();
 
 	// Constructores
 
@@ -22,7 +22,7 @@ public class Pedido {
 	 * @param p_cliente   El clienteque realiza el pedido (Cliente).
 	 * @param p_productos La lista de productosincluidos en el pedido (ArrayList<Producto>).
 	 */
-	Pedido(Calendar p_fecha, Cliente p_cliente, ArrayList<Producto> p_productos) {
+	Pedido(Calendar p_fecha, Cliente p_cliente, ArrayList p_productos) {
 		this.setFecha(p_fecha);
 		this.setCliente(p_cliente);
 		this.setProductos(p_productos);
@@ -37,7 +37,7 @@ public class Pedido {
 	Pedido(Calendar p_fecha, Cliente p_cliente) {
 		this.setFecha(p_fecha);
 		this.setCliente(p_cliente);
-		this.setProductos(new ArrayList<>());
+		this.setProductos(new ArrayList());
 	}
 
 	// Getters y Setters
@@ -48,7 +48,7 @@ public class Pedido {
 	 * @return La fecha del pedido (Calendar).
 	 */
 	public Calendar getFecha() {
-		return fecha;
+		return this.fecha;
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class Pedido {
 	 * @return El cliente del pedido (Cliente).
 	 */
 	public Cliente getCliente() {
-		return cliente;
+		return this.cliente;
 	}
 
 	/**
@@ -83,8 +83,9 @@ public class Pedido {
 	 *
 	 * @return La lista de productos del pedido (ArrayList<Producto>).
 	 */
-	public ArrayList<Producto> getProductos() {
-		return productos;
+
+	public ArrayList getProductos() {
+		return this.productos;
 	}
 
 	/**
@@ -92,7 +93,7 @@ public class Pedido {
 	 *
 	 * @param productos La nueva lista de productos del pedido (ArrayList< Producto >).
 	 */
-	private void setProductos(ArrayList<Producto> productos) {
+	private void setProductos(ArrayList productos) {
 		this.productos = productos;
 	}
 
@@ -105,7 +106,8 @@ public class Pedido {
 	 */
 	public double totalAlContado() {
 		double total = 0;
-		for (Producto producto : this.getProductos()) {
+		for (Object obj : this.getProductos()) {
+			Producto producto = (Producto) obj;
 			total += producto.precioContado();
 		}
 		return total;
@@ -118,7 +120,8 @@ public class Pedido {
 	 */
 	public double totalFinanciado() {
 		double total = 0;
-		for (Producto producto : this.getProductos()) {
+		for (Object obj : this.getProductos()) {
+			Producto producto = (Producto) obj;
 			total += producto.precioLista();
 		}
 		return total;
@@ -131,8 +134,8 @@ public class Pedido {
 	 *
 	 * @param p_producto El producto a agregar (Producto).
 	 * @return true si el producto fue agregado exitosamente, false en caso contrario.
-	 *
 	 */
+	@SuppressWarnings("unchecked")
 	public boolean agregarProducto(Producto p_producto) {
 		return this.getProductos().add(p_producto);
 	}
@@ -142,7 +145,6 @@ public class Pedido {
 	 *
 	 * @param p_producto El producto a eliminar (Producto).
 	 * @return true si el producto fue eliminado exitosamente, false en caso contrario.
-	 *
 	 */
 	public boolean quitarProducto(Producto p_producto) {
 		return this.getProductos().remove(p_producto);
@@ -151,7 +153,6 @@ public class Pedido {
 	/**
 	 * Muestra los detalles del pedido, incluyendo la fecha, la lista de
 	 * productos con sus precios y los totales al contado y financiado.
-	 *
 	 */
 	public void mostrar() {
 		// Encabezado
@@ -162,7 +163,9 @@ public class Pedido {
 		System.out.printf("%-20s %15s %15s%n", "Producto", "Precio Lista", "Precio Contado");
 
 		// Lista de productos
-		for (Producto producto : this.getProductos()) {
+
+		for (Object obj : this.getProductos()) {
+			Producto producto = (Producto) obj;
 			producto.mostrarLinea();
 		}
 

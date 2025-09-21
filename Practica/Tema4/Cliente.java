@@ -33,7 +33,7 @@ public class Cliente {
 	 * Cambia el DNI del cliente.
 	 * @param p_nroDNI nuevo DNI
 	 */
-	public void setNroDNI(int p_nroDNI) {
+	private void setNroDNI(int p_nroDNI) {
 		this.nroDNI = p_nroDNI;
 	}
 
@@ -49,7 +49,7 @@ public class Cliente {
 	 * Cambia el apellido del cliente.
 	 * @param p_apellido nuevo apellido
 	 */
-	public void setApellido(String p_apellido) {
+	private void setApellido(String p_apellido) {
 		this.apellido = p_apellido;
 	}
 
@@ -65,7 +65,7 @@ public class Cliente {
 	 * Cambia el nombre del cliente.
 	 * @param p_nombre nuevo nombre
 	 */
-	public void setNombre(String p_nombre) {
+	private void setNombre(String p_nombre) {
 		this.nombre = p_nombre;
 	}
 
@@ -81,7 +81,7 @@ public class Cliente {
 	 * Cambia el saldo de la cuenta del cliente.
 	 * @param p_saldo nuevo saldo
 	 */
-	public void setSaldo(double p_saldo) {
+	private void setSaldo(double p_saldo) {
 		this.saldo = p_saldo;
 	}
 

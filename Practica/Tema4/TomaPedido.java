@@ -1,4 +1,5 @@
 import java.util.Calendar;
+import java.util.Scanner;
 /**
  * TP 4 - Act 2
  * Clase principal para tomar un pedido.
@@ -7,153 +8,101 @@ import java.util.Calendar;
  * */
 public class TomaPedido {
 	public static void main(String[] args) {
-		// - TODO: Pasar todo esto a Scanner
-		Cliente cliente1 = new Cliente(78249635,
-				"Sanchez",
-				"Juan",
-				0);
-		Pedido pedido1 = new Pedido(Calendar.getInstance(), cliente1);
+		Scanner sc = new Scanner(System.in);
 
-		Laboratorio lab1 = new Laboratorio("Pfizer",
-				"Santa Fe 1234",
-				"123456789");
+		// 1. Datos del laboratorio
+		System.out.println("Ingrese datos del laboratorio:");
+		System.out.println("Nombre: ");
+		String nombreLab = sc.next();
+		System.out.println("Dirección: ");
+		String direccionLab = sc.next();
+		System.out.println("Teléfono: ");
+		String telefonoLab = sc.next();
+		Laboratorio lab = new Laboratorio(nombreLab, direccionLab, telefonoLab);
 
-		// Creando los productos
-		Producto prod1 = new Producto(795948,
-				"Perfumería",
-				"Crema de manos",
-				1500.0,
-				lab1);
+		// 2. Datos del cliente
+		System.out.println("\nIngrese datos del cliente:");
+		System.out.print("CUIL: ");
+		int cuil = sc.nextInt();
+		System.out.println("Apellido: ");
+		String apellido = sc.next();
+		System.out.println("Nombre: ");
+		String nombre = sc.next();
+		System.out.print("Puntos: ");
+		int puntos = sc.nextInt();
+		Cliente cliente = new Cliente(cuil, apellido, nombre, puntos);
 
-		Producto prod2 = new Producto(795949,
-				"Medicamento",
-				"Analgésico",
-				500.0,
-				lab1);
+		// 3. Crear pedido
+		Pedido pedido = new Pedido(Calendar.getInstance(), cliente);
 
-		Producto prod3 = new Producto(795950,
-				"Higiene",
-				"Jabón líquido",
-				800.0,
-				lab1);
+		// 4. Menú
+		int opcion;
+		do {
+			System.out.println("\n--- MENÚ PEDIDO ---");
+			System.out.println("1. Agregar producto al pedido");
+			System.out.println("2. Quitar producto del pedido");
+			System.out.println("3. Mostrar pedido");
+			System.out.println("4. Salir");
+			System.out.print("Seleccione una opción: ");
+			opcion = sc.nextInt();
 
-		Producto prod4 = new Producto(795951,
-				"Medicamento",
-				"Antibiótico",
-				3500.0,
-				lab1);
+			switch (opcion) {
+				case 1:
+					System.out.println("\nIngrese datos del producto a agregar:");
+					System.out.print("Código: ");
+					int codigo = sc.nextInt();
+					System.out.println("Categoría: ");
+					String categoria = sc.next();
+					System.out.println("Nombre: ");
+					String nombreProd = sc.next();
+					System.out.println("Precio: ");
+					double precio = Double.parseDouble(sc.next());
 
-		Producto prod5 = new Producto(795952,
-				"Higiene",
-				"Shampoo",
-				1200.0,
-				lab1);
+					Producto nuevoProd = new Producto(codigo, categoria, nombreProd, precio, lab);
+					pedido.agregarProducto(nuevoProd);
+					System.out.println("Producto agregado al pedido.");
+					break;
 
-		Producto prod6 = new Producto(795953,
-				"Perfumería",
-				"Colonia fresca",
-				2500.0,
-				lab1);
+				case 2:
+					if (pedido.getProductos().isEmpty()) {
+						System.out.println("No hay productos en el pedido.");
+					} else {
+						System.out.println("\nProductos en el pedido:");
 
-		Producto prod7 = new Producto(795954,
-				"Cuidado personal",
-				"Crema facial",
-				4000.0,
-				lab1);
+						for (int i = 0; i < pedido.getProductos().size(); i++) {
+							Producto prod = (Producto) pedido.getProductos().get(i);
+							System.out.println((i + 1) + ". " + prod.getDescripcion() + " - $" + prod.getCosto());
+						}
 
-		Producto prod8 = new Producto(795955,
-				"Medicamento",
-				"Jarabe para la tos",
-				2200.0,
-				lab1);
+						System.out.print("Seleccione el número del producto a quitar: ");
 
-		Producto prod9 = new Producto(795956,
-				"Higiene",
-				"Pasta dental",
-				950.0,
-				lab1);
+						int prodQuitar = sc.nextInt() - 1;
 
-		Producto prod10 = new Producto(795957,
-				"Perfumería",
-				"Desodorante",
-				1100.0,
-				lab1);
+						if (prodQuitar >= 0 && prodQuitar < pedido.getProductos().size()) {
+							Producto prod = (Producto) pedido.getProductos().get(prodQuitar);
+							pedido.quitarProducto(prod);
+							System.out.println("Producto quitado del pedido.");
+						} else {
+							System.out.println("Opción inválida.");
+						}
+					}
+					break;
 
-		Producto prod11 = new Producto(795958,
-				"Cuidado personal",
-				"Protector solar",
-				3300.0,
-				lab1);
+				case 3:
+					pedido.mostrar();
+					break;
 
-		Producto prod12 = new Producto(795959,
-				"Medicamento",
-				"Vitaminas",
-				2800.0,
-				lab1);
+				case 4:
+					System.out.println("Saliendo...");
+					break;
 
-		Producto prod13 = new Producto(795960,
-				"Higiene",
-				"Toallas húmedas",
-				600.0,
-				lab1);
+				default:
+					System.out.println("Opción inválida.");
+			}
 
-		Producto prod14 = new Producto(795961,
-				"Perfumería",
-				"Perfume floral",
-				7200.0,
-				lab1);
+		} while (opcion != 4);
 
-		Producto prod15 = new Producto(795962,
-				"Cuidado personal",
-				"Crema corporal",
-				2700.0,
-				lab1);
-
-		Producto prod16 = new Producto(795963,
-				"Medicamento",
-				"Analgésico fuerte",
-				1500.0,
-				lab1);
-
-		Producto prod17 = new Producto(795964,
-				"Higiene",
-				"Enjuague bucal",
-				1300.0,
-				lab1);
-
-		Producto prod18 = new Producto(795965,
-				"Perfumería",
-				"Body splash",
-				1900.0,
-				lab1);
-
-
-		pedido1.agregarProducto(prod1);
-		pedido1.agregarProducto(prod2);
-		pedido1.agregarProducto(prod3);
-		pedido1.agregarProducto(prod4);
-		pedido1.agregarProducto(prod5);
-		pedido1.agregarProducto(prod6);
-		pedido1.agregarProducto(prod7);
-		pedido1.agregarProducto(prod8);
-		pedido1.agregarProducto(prod9);
-		pedido1.agregarProducto(prod10);
-		pedido1.agregarProducto(prod11);
-		pedido1.agregarProducto(prod12);
-		pedido1.agregarProducto(prod13);
-		pedido1.agregarProducto(prod14);
-		pedido1.agregarProducto(prod15);
-		pedido1.agregarProducto(prod16);
-		pedido1.agregarProducto(prod17);
-		pedido1.agregarProducto(prod18);
-
-
-		pedido1.mostrar();
-
-		System.out.println();
-		System.out.println();
-		pedido1.quitarProducto(prod3);
-		pedido1.quitarProducto(prod8);
-		pedido1.mostrar();
+		sc.close();
 	}
 }
+

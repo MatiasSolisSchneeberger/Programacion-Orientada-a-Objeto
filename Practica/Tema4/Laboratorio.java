@@ -60,7 +60,7 @@ public class Laboratorio {
 	 *
 	 * @param p_nombre nuevo nombre
 	 */
-	public void setNombre(String p_nombre) {
+	private void setNombre(String p_nombre) {
 		this.nombre = p_nombre;
 	}
 
@@ -78,7 +78,7 @@ public class Laboratorio {
 	 *
 	 * @param p_domicilio nuevo domicilio
 	 */
-	public void setDomicilio(String p_domicilio) {
+	private void setDomicilio(String p_domicilio) {
 		this.domicilio = p_domicilio;
 	}
 
@@ -87,7 +87,7 @@ public class Laboratorio {
 	 *
 	 * @param p_telefono nuevo teléfono
 	 */
-	public void setTelefono(String p_telefono) {
+	private void setTelefono(String p_telefono) {
 		this.telefono = p_telefono;
 	}
 
@@ -114,7 +114,7 @@ public class Laboratorio {
 	 *
 	 * @param compraMinima nuevo valor de compra mínima
 	 */
-	public void setCompraMinima(int compraMinima) {
+	private void setCompraMinima(int compraMinima) {
 		this.compraMinima = compraMinima;
 	}
 
@@ -132,7 +132,7 @@ public class Laboratorio {
 	 *
 	 * @param diaEntrega nuevo día de entrega
 	 */
-	public void setDiaEntrega(int diaEntrega) {
+	private void setDiaEntrega(int diaEntrega) {
 		this.diaEntrega = diaEntrega;
 	}
 
