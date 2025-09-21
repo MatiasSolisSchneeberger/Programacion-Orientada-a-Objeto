@@ -1,86 +1,181 @@
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Scanner;
 
 public class AplicacionBanco {
 	public static void main(String[] args) {
-		// Localidades
-		Localidad loc1 = new Localidad("Corrientes", "Corrientes");
-		Localidad loc2 = new Localidad("Resistencia", "Chaco");
+		Scanner sc = new Scanner(System.in);
 
-		// Empleados Banco 1
-		Empleado e1 = new Empleado(27267504235L,
-				"Perez",
-				"Lorena",
-				121200.0,
-				Calendar.getInstance());
-		Empleado e2 = new Empleado(20159462638L,
-				"Dominguez",
-				"Pedro",
-				265000.4,
-				Calendar.getInstance());
-		Empleado e3 = new Empleado(30124578963L,
-				"Gomez",
-				"Carla",
-				187500.7,
-				Calendar.getInstance());
-		Empleado e4 = new Empleado(28123654789L,
-				"Martinez",
-				"Juan",
-				95000.0,
-				Calendar.getInstance());
-		Empleado e5 = new Empleado(22123456780L,
-				"Lopez",
-				"Marta",
-				134800.5,
-				Calendar.getInstance());
+		// 1. Crear banco
+		System.out.println("=== Creación del Banco ===");
+		System.out.print("Nombre del banco: ");
+		String nombreBanco = sc.nextLine();
 
+		System.out.println();
 
-		Banco banco1 = new Banco("RIO", loc1, 3, e1);
+		System.out.println("Datos de la localidad:");
+		System.out.print("Ciudad: ");
+		String ciudad = sc.nextLine();
 
-		banco1.agregarEmpleado(e2);
-		banco1.agregarEmpleado(e3);
-		banco1.agregarEmpleado(e4);
-		banco1.agregarEmpleado(e5);
+		System.out.print("Provincia: ");
+		String provincia = sc.nextLine();
 
-		// Empleados Banco 2
-		Empleado e6 = new Empleado(27111111111L,
-				"Fernandez",
-				"Carlos",
-				158000.0,
-				Calendar.getInstance());
-		Empleado e7 = new Empleado(20222222222L,
-				"Ramirez",
-				"Ana",
-				198500.3,
-				Calendar.getInstance());
-		Empleado e8 = new Empleado(30333333333L,
-				"Silva",
-				"Mario",
-				110200.8,
-				Calendar.getInstance());
-		Empleado e9 = new Empleado(28444444444L,
-				"Torres",
-				"Lucia",
-				145600.0,
-				Calendar.getInstance());
-		Empleado e10 = new Empleado(22555555555L,
-				"Alvarez",
-				"Sofia",
-				212300.9,
-				Calendar.getInstance());
+		Localidad loc = new Localidad(ciudad, provincia);
 
-		ArrayList<Empleado> listaEmpleados2 = new ArrayList<>();
-		listaEmpleados2.add(e6);
-		listaEmpleados2.add(e7);
-		listaEmpleados2.add(e8);
-		listaEmpleados2.add(e9);
-		listaEmpleados2.add(e10);
+		Banco banco = new Banco(nombreBanco, loc, 1, new ArrayList<>(), new ArrayList<>());
 
-		Banco banco2 = new Banco("NACION", loc2, 12, listaEmpleados2);
+		System.out.println();
 
-		// Mostrar datos de los bancos
-		banco1.mostrar();
-		System.out.print("\n\n-------------------------------------\n\n");
-		banco2.mostrar();
+		int opcion;
+		do {
+			System.out.println("--- MENÚ BANCO ---");
+			System.out.println("1. Agregar empleado");
+			System.out.println("2. Quitar empleado");
+			System.out.println("3. Agregar cliente (cuenta bancaria)");
+			System.out.println("4. Quitar cliente (cuenta bancaria)");
+			System.out.println("5. Mostrar empleados");
+			System.out.println("6. Mostrar clientes");
+			System.out.println("7. Mostrar resumen del banco");
+			System.out.println("8. Salir");
+			System.out.print("Seleccione una opción: ");
+			opcion = sc.nextInt();
+			sc.nextLine();
+
+			System.out.println();
+
+			switch (opcion) {
+				case 1:
+					System.out.println("--- Agregar Empleado ---");
+					System.out.print("CUIL: ");
+					long cuilEmp = sc.nextLong();
+					sc.nextLine();
+					System.out.print("Apellido: ");
+					String apeEmp = sc.nextLine();
+
+					System.out.print("Nombre: ");
+					String nomEmp = sc.nextLine();
+
+					System.out.print("Sueldo básico: ");
+					double sueldo = sc.nextDouble();
+
+					sc.nextLine();
+
+					Empleado emp = new Empleado(cuilEmp, apeEmp, nomEmp, sueldo, Calendar.getInstance());
+					banco.agregarEmpleado(emp);
+					System.out.println("Empleado agregado");
+					break;
+
+				case 2:
+					System.out.println("--- Eliminar Empleado ---");
+					System.out.print("\nCUIL: ");
+					long cuilEliminar = sc.nextLong();
+					sc.nextLine();
+
+					boolean encontrado = false;
+
+					for (Empleado e : new ArrayList<>(banco.getEmpleados())) {
+						if (e.getCuil() == cuilEliminar) {
+							banco.quitarEmpleado(e);
+							System.out.println("Empleado eliminado");
+							encontrado = true;
+							break;
+						}
+					}
+
+					if (!encontrado) System.out.println("Empleado no encontrado");
+
+					break;
+
+				case 3:
+					System.out.println("--- Agregar Cliente / Cuenta ---");
+
+					System.out.print("Número de cuenta: ");
+					int nroCuenta = sc.nextInt();
+					sc.nextLine();
+
+					System.out.print("Numero de DNI del titular: ");
+					int DNICli = sc.nextInt();
+
+					sc.nextLine();
+
+					System.out.print("Apellido del titular: ");
+					String apeCli = sc.nextLine();
+
+					System.out.print("Nombre del titular: ");
+					String nomCli = sc.nextLine();
+
+					// Fecha de nacimiento
+					System.out.println("Fecha de nacimiento del titular:");
+					System.out.print("\tDía: ");
+					int diaNac = sc.nextInt();
+
+					System.out.print("\tMes (1-12): ");
+					int mesNac = sc.nextInt();
+
+					System.out.print("\tAño: ");
+					int anioNac = sc.nextInt();
+
+					sc.nextLine();
+
+					// Crear Calendar
+					Calendar fechaNacimiento = Calendar.getInstance();
+					fechaNacimiento.set(anioNac, mesNac - 1, diaNac);
+
+					// Crear Persona con Calendar
+					Persona titular = new Persona(DNICli, nomCli, apeCli, fechaNacimiento);
+
+					CuentaBancaria cuenta = new CuentaBancaria(nroCuenta, titular);
+					banco.agregarCuentaBancaria(cuenta);
+					System.out.println("Cuenta agregada");
+					break;
+
+				case 4:
+					System.out.print("\nNúmero de cuenta a eliminar: ");
+					int nroQuitar = sc.nextInt();
+					sc.nextLine();
+
+					boolean encontrada = false;
+
+					for (CuentaBancaria cuentaBancaria : new ArrayList<>(banco.getCuentasBancarias())) {
+						if (cuentaBancaria.getNroCuenta() == nroQuitar) {
+							encontrada = true;
+							banco.quitarCuentaBancaria(cuentaBancaria);
+
+							break;
+						}
+					}
+
+					System.out.println(encontrada ? "Cuenta eliminada" : "Cuenta no encontrada");
+
+					break;
+
+				case 5:
+					System.out.println("--- Empleados ---");
+					banco.listarSueldos();
+					break;
+
+				case 6:
+					System.out.println("--- Clientes / Cuentas ---");
+					for (CuentaBancaria c : banco.getCuentasBancarias()) {
+						System.out.println("Cuenta: " + c.getNroCuenta() + " Titular: " + c.getTitular().nomYApe());
+					}
+					break;
+
+				case 7:
+					System.out.println("--- Resumen del Banco ---");
+					banco.mostrarResumen();
+					break;
+
+				case 8:
+					System.out.println("Saliendo...");
+					break;
+
+				default:
+					System.out.println("Opción inválida");
+			}
+
+		} while (opcion != 8);
+
+		sc.close();
 	}
 }

@@ -1,7 +1,10 @@
 /**
- * TP 3 - Act 8
+ * TP 3 - Act 8 |TP 4 - Act 3 | TP 4 - Act 4
  * Representa una localidad con su nombre y provincia.
  * Permite acceder y modificar estos datos, y mostrarlos en formato texto.
+ *
+ * @author Matias Solis Schneeberger
+ * @version 1.0.1
  */
 public class Localidad {
 	private String nombre;
@@ -32,7 +35,7 @@ public class Localidad {
 	 *
 	 * @param nombre Nombre de la localidad.
 	 */
-	public void setNombre(String nombre) {
+	private void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
@@ -50,7 +53,7 @@ public class Localidad {
 	 *
 	 * @param provincia Nombre de la provincia.
 	 */
-	public void setProvincia(String provincia) {
+	private void setProvincia(String provincia) {
 		this.provincia = provincia;
 	}
 
