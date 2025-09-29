@@ -1,5 +1,5 @@
 /**
- * TP 3 - Act 2 | TP 4 - Act 1
+ * TP 3 - Act 2
  * Representa un punto en el plano cartesiano con coordenadas (x, y).
  * Permite modificar y obtener sus valores, desplazar el punto, calcular distancias y mostrar información.
  *
@@ -45,7 +45,7 @@ public class Punto {
 	 *
 	 * @param p_x nuevo valor para X
 	 */
-	private void setX(double p_x) {
+	public void setX(double p_x) {
 		this.x = p_x;
 	}
 
@@ -63,7 +63,7 @@ public class Punto {
 	 *
 	 * @param p_y nuevo valor para Y
 	 */
-	private void setY(double p_y) {
+	public void setY(double p_y) {
 		this.y = p_y;
 	}
 

@@ -175,5 +175,4 @@ public class Pedido {
 		System.out.printf("%-20s %15.2f %15.2f%n",
 				"TOTAL", this.totalFinanciado(), this.totalAlContado());
 	}
-
 }
