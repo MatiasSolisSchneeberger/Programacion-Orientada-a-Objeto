@@ -27,7 +27,7 @@ public class Persona {
 	 * @param p_apellido       apellido de la persona
 	 * @param p_anioNacimiento año de nacimiento
 	 */
-	Persona(int p_nroDNI, String p_nombre, String p_apellido, int p_anioNacimiento) {
+	public Persona(int p_nroDNI, String p_nombre, String p_apellido, int p_anioNacimiento) {
 		this.setDNI(p_nroDNI);
 		this.setNombre(p_nombre);
 		this.setApellido(p_apellido);
@@ -42,7 +42,7 @@ public class Persona {
 	 * @param p_apellido        apellido de la persona
 	 * @param p_fechaNacimiento fecha de nacimiento
 	 */
-	Persona(int p_nroDNI, String p_nombre, String p_apellido, Calendar p_fechaNacimiento) {
+	public Persona(int p_nroDNI, String p_nombre, String p_apellido, Calendar p_fechaNacimiento) {
 		this.setDNI(p_nroDNI);
 		this.setNombre(p_nombre);
 		this.setApellido(p_apellido);
@@ -136,7 +136,7 @@ public class Persona {
 	 *
 	 * @param fechaNacimiento fecha de nacimiento
 	 */
-	public void setFechaNacimiento(Calendar fechaNacimiento) {
+	private void setFechaNacimiento(Calendar fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 

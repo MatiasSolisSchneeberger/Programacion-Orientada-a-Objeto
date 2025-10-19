@@ -50,7 +50,7 @@ public class Alumno extends Persona {
 	 *
 	 * @param p_lu nueva LU
 	 */
-	public void setLU(int p_lu) {
+	private void setLU(int p_lu) {
 		this.LU = p_lu;
 	}
 
@@ -129,7 +129,8 @@ public class Alumno extends Persona {
 	 * - Notas
 	 * - Promedio y si aprueba o no
 	 */
-	public void mostrar() {
+	@Override
+    public void mostrar() {
 		super.mostrar();
 		System.out.print("LU: " + getLU());
 		System.out.println("\tNotas: " + getNota1() + " - " + getNota2());
