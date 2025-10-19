@@ -16,13 +16,6 @@ public class Empleado extends Persona {
 	private double sueldoBasico;
 	private Calendar fechaIngreso;
 
-	// TODO:
-	//  - Preguntar si tengo que redefinir los construtores o creo nuevos (por la retrocompatibilidad)
-	//  	↳ mas que nada la tema de fecha de nacimiento o año nacimiento
-
-	// - Agregé dos constructores nuevos para las combinaciones posibles entre int y
-	// calendar del ingreso y el nacimiento
-
 	/**
 	 * Constructor de la clase Empleado.
 	 *
@@ -98,8 +91,6 @@ public class Empleado extends Persona {
 		this.setSueldoBasico(p_sueldoBasico);
 		this.setFechaIngreso(p_fechaIngreso);
 	}
-
-
 
 	/**
 	 * Devuelve el CUIL del empleado.
@@ -232,7 +223,8 @@ public class Empleado extends Persona {
 	 * Muestra por consola los datos principales del empleado:
 	 * nombre, CUIL, antigüedad y sueldo neto.
 	 */
-	public void mostrar() {
+	@Override
+    public void mostrar() {
 		super.mostrar();
 		System.out.print("CUIL: " + this.getCuil());
 		System.out.println("\tAntigüedad: " + this.antiguedad() + " años de servicio");

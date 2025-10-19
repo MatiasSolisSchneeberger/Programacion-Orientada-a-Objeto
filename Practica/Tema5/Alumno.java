@@ -8,7 +8,7 @@ import java.util.Calendar;
  * TP 5 - Act 1
  *
  * @author Matias Solis Schneeberger
- * @version 1.0
+ * @version 2.0
  */
 public class Alumno extends Persona {
 	private int LU;
