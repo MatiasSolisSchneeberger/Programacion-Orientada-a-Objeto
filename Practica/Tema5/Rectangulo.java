@@ -1,87 +1,147 @@
 /**
  * TP 3 - Act 4
- * Representa un rectángulo en un plano cartesiano.
+ * TP 5 - Act 3
+ * TP 5 - Act 7
+ * Representa un rectangulo en un plano cartesiano.
  *
  * @author Matias Solis Schneeberger
- * @version 1.0
+ * @version 2.0.0
  */
-public class Rectangulo {
-	private Punto origen;
-	private double ancho;
-	private double alto;
+public class Rectangulo extends FiguraGeometrica {
+    private double ancho;
+    private double alto;
 
-	Rectangulo(Punto p_origen, double p_ancho, double p_alto) {
-		this.setAlto(p_alto);
-		this.setAncho(p_ancho);
-		this.setOrigen(p_origen);
-	}
+    /**
+     * Constructor de Rectangulo con origen.
+     *
+     * @param p_origen Origen del rectangulo (Punto)
+     * @param p_ancho  Ancho del rectangulo
+     * @param p_alto   Alto del rectangulo
+     */
+    Rectangulo(Punto p_origen, double p_ancho, double p_alto) {
+        super(p_origen);
+        this.setAlto(p_alto);
+        this.setAncho(p_ancho);
+    }
 
-	Rectangulo(double p_ancho, double p_alto) {
-		this.setAlto(p_alto);
-		this.setAncho(p_ancho);
-		Punto pto = new Punto(0, 0);
-		this.setOrigen(pto);
-	}
+    /**
+     * Constructor de Rectangulo en origen (0,0).
+     *
+     * @param p_ancho Ancho del rectangulo
+     * @param p_alto  Alto del rectangulo
+     */
+    Rectangulo(double p_ancho, double p_alto) {
+        super(new Punto(0.0, 0.0));
+        this.setAlto(p_alto);
+        this.setAncho(p_ancho);
+    }
 
-	public Punto getOrigen() {
-		return this.origen;
-	}
+    /**
+     * Obtiene el ancho.
+     * @return El ancho.
+     */
+    public double getAncho() {
+        return this.ancho;
+    }
 
-	public void setOrigen(Punto origen) {
-		this.origen = origen;
-	}
+    /**
+     * Establece el ancho.
+     *
+     * @param p_ancho Ancho del rectangulo
+     */
+    private void setAncho(double p_ancho) {
+        this.ancho = p_ancho;
+    }
 
-	public double getAncho() {
-		return this.ancho;
-	}
+    /**
+     * Obtiene el alto.
+     * @return El alto.
+     */
+    public double getAlto() {
+        return this.alto;
+    }
 
-	private void setAncho(double ancho) {
-		this.ancho = ancho;
-	}
+    /**
+     * Establece el alto.
+     *
+     * @param p_alto Alto del rectangulo
+     */
+    private void setAlto(double p_alto) {
+        this.alto = p_alto;
+    }
 
-	public double getAlto() {
-		return this.alto;
-	}
+    /**
+     * Desplaza el rectangulo moviendo su punto de origen.
+     *
+     * @param p_dx Incremento en X
+     * @param p_dy Incremento en Y
+     */
+    public void desplazar(double p_dx, double p_dy) {
+        this.setOrigen(new Punto(p_dx, p_dy));
+    }
 
-	private void setAlto(double alto) {
-		this.alto = alto;
-	}
+    /**
+     * Devuelve el nombre de la figura.
+     *
+     * @return "Rectangulo"
+     */
+    @Override
+    String nombreFigura() {
+        return "Rectangulo";
+    }
 
-	public void desplazar(double p_px, double p_py) {
-		Punto punto = new Punto(p_px, p_py);
-		this.setOrigen(punto);
-	}
+    /**
+     * Muestra las caracteristicas del rectangulo.
+     */
+    public void caracteristicas() {
+        System.out.println("****** " + this.nombreFigura() + " ******");
+        System.out.println("Centro: " + this.getOrigen().coordenadas() +
+                "\t- Alto: " + this.getAlto() +
+                "\t- Ancho: " + this.getAncho());
+        System.out.println("Superficie: " + this.superficie() +
+                "\t- Perimetro: " + this.perimetro());
+    }
 
-	public void nombreFigura() {
-		System.out.println("****** Rectangulo ******");
-	}
+    /**
+     * Calcula la superficie (ancho * alto).
+     *
+     * @return la superficie.
+     */
+    @Override
+    public double superficie() {
+        return this.getAncho() * this.getAlto();
+    }
 
-	public void caracteristicas() {
-		this.nombreFigura();
-		System.out.println("Centro: " + this.getOrigen().coordenadas() +
-				"\t- Alto: " + this.getAlto() +
-				"\t- Ancho" + this.getAncho());
-		System.out.println("Superficie: " + this.superficie() +
-				"\t- Perímetro: " + this.perimetro());
-	}
+    /**
+     * Calcula el perimetro (2*ancho + 2*alto).
+     *
+     * @return el perimetro.
+     */
+    public double perimetro() {
+        return (this.getAncho() * 2) + (this.getAlto() * 2);
+    }
 
-	public double superficie() {
-		return this.getAncho() * this.getAlto();
-	}
+    /**
+     * Calcula la distancia al origen de otro rectangulo.
+     *
+     * @param p_otroRectangulo El otro rectangulo.
+     * @return la distancia.
+     */
+    public double distanciaA(Rectangulo p_otroRectangulo) {
+        return this.getOrigen().distanciaA(p_otroRectangulo.getOrigen());
+    }
 
-	public double perimetro() {
-		return this.getAncho() + this.getAlto();
-	}
-
-	public double distanciaA(Rectangulo otroCirculo) {
-		return this.getOrigen().distanciaA(otroCirculo.getOrigen());
-	}
-
-	public Rectangulo elMayor(Rectangulo otroRectangulo) {
-		if (this.superficie() > otroRectangulo.superficie()) {
-			return this;
-		} else {
-			return otroRectangulo;
-		}
-	}
+    /**
+     * Devuelve el rectangulo con mayor superficie.
+     *
+     * @param p_otroRectangulo El otro rectangulo a comparar.
+     * @return El rectangulo de mayor tamanio.
+     */
+    public Rectangulo elMayor(Rectangulo p_otroRectangulo) {
+        if (this.superficie() > p_otroRectangulo.superficie()) {
+            return this;
+        } else {
+            return p_otroRectangulo;
+        }
+    }
 }
